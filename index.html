@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cash-Flow Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Chart.js via CDN — no npm needed -->
+    <script src="[cdn.jsdelivr.net](https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js)"></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>💰 Cash-Flow</h1>
+    </header>
+
+    <main>
+        <!-- Salary input (separate so user sets it once) -->
+        <section id="salary-section">
+            <label for="salaryInput">Monthly Salary (₹)</label>
+            <input type="number" id="salaryInput" min="0" placeholder="e.g. 50000" />
+            <button id="setSalaryBtn">Set Salary</button>
+        </section>
+
+        <!-- Expense entry form -->
+        <section id="expense-section">
+            <h2>Add Expense</h2>
+            <form id="expenseForm">
+                <input type="text" id="expenseName" placeholder="Expense name" required />
+                <input type="number" id="expenseAmount" min="0" placeholder="Amount" required />
+                <button type="submit">Add</button>
+            </form>
+            <p id="errorMsg" class="error"></p>
+        </section>
+
+        <!-- Live summary -->
+        <section id="summary-section">
+            <div class="stat">
+                <span>Salary</span>
+                <strong id="displaySalary">₹0</strong>
+            </div>
+            <div class="stat">
+                <span>Total Spent</span>
+                <strong id="displaySpent">₹0</strong>
+            </div>
+            <div class="stat">
+                <span>Remaining</span>
+                <strong id="displayRemaining">₹0</strong>
+            </div>
+        </section>
+
+        <!-- Pie chart -->
+        <section id="chart-section">
+            <canvas id="balanceChart" width="300" height="300"></canvas>
+        </section>
+
+        <!-- Expense list -->
+        <section id="list-section">
+            <h2>Expenses</h2>
+            <ul id="expenseList"></ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
