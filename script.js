@@ -1,6 +1,6 @@
 
 
-// ========== DOM REFERENCES ==========
+
 const salaryInput = document.getElementById('salaryInput');
 const setSalaryBtn = document.getElementById('setSalaryBtn');
 const expenseForm = document.getElementById('expenseForm');
@@ -24,7 +24,7 @@ function init() {
     renderAll();
 }
 
-// ========== STORAGE HELPERS ==========
+// STORAGE 
 function loadFromStorage() {
     // Parse salary
     const savedSalary = localStorage.getItem('cf_salary');
@@ -119,7 +119,7 @@ function renderChart() {
     });
 }
 
-// ========== UTILITY ==========
+
 function formatCurrency(num) {
     return '₹' + num.toLocaleString('en-IN');
 }
@@ -136,7 +136,7 @@ function clearError() {
     errorMsg.textContent = '';
 }
 
-// ========== EVENT HANDLERS ==========
+
 
 // Set salary button
 setSalaryBtn.addEventListener('click', () => {
@@ -160,7 +160,7 @@ expenseForm.addEventListener('submit', (e) => {
     const name = expenseNameInput.value.trim();
     const amount = Number(expenseAmountInput.value);
 
-    // Validation: non-empty name, positive amount
+    
     if (!name) {
         showError('Expense name cannot be empty.');
         return;
@@ -195,5 +195,5 @@ function deleteExpense(id) {
     renderAll();
 }
 
-// ========== KICK OFF ==========
+
 init();
